@@ -1,16 +1,16 @@
 <script setup lang="ts">
-import { ref } from 'vue'
+import { ref } from "vue";
 
-defineProps<{ msg: string }>()
+defineProps<{ msg: string }>();
 
-const count = ref(0)
+const count = ref(0);
 </script>
 
 <template>
   <label>
-  <input type="number" name="income-amount">
+    <input type="number" name="income-amount" />
   </label>
- <input type="submit">
+  <input type="submit" />
 </template>
 
 <style scoped>
