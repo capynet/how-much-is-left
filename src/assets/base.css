@@ -72,3 +72,15 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
+
+.form-item{
+  margin-bottom: 10px;
+}
+
+input{
+  padding: 10px;
+}
+
+input[type="radio"] + label{
+  padding-left: 10px;
+}
