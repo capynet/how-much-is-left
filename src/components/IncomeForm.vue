@@ -1,47 +1,51 @@
 <script setup lang="ts">
 import { ref } from "vue";
 
-// const submit = function () {
-//
-// };
-
 const incomeAmount = ref();
 const origin = ref("ueExempt");
+
+const submit = function (e: SubmitEvent) {
+  console.log(e);
+  console.log("enviado");
+};
 </script>
 
 <template>
-  <p>Amount</p>
-  <div class="form-item">
-    <label>
-      <input
-        type="number"
-        id="income-amount"
-        name="income-amount"
-        v-model.number="incomeAmount"
-        required
-      />
-    </label>
-  </div>
-
-  <fieldset class="form-item">
-    <legend>Origin</legend>
+  <form @submit.prevent="submit">
     <div class="form-item">
-      <input type="radio" id="spain" value="spain" v-model="origin" />
-      <label for="spain">Spain</label>
+      <label>
+        <p>Amount</p>
+        <input
+          type="number"
+          id="income-amount"
+          name="income-amount"
+          v-model.number="incomeAmount"
+          required
+        />
+        €
+      </label>
     </div>
 
-    <div class="form-item">
-      <input type="radio" id="ue-exempt" value="ueExempt" v-model="origin" />
-      <label for="ue-exempt">UE exempt</label>
+    <fieldset class="form-item">
+      <legend>Origin</legend>
+      <div class="form-item">
+        <input type="radio" id="spain" value="spain" v-model="origin" />
+        <label for="spain">Spain</label>
+      </div>
+
+      <div class="form-item">
+        <input type="radio" id="ue-exempt" value="ueExempt" v-model="origin" />
+        <label for="ue-exempt">UE exempt</label>
+      </div>
+    </fieldset>
+
+    <div class="brief form-item">
+      <p><strong>Amount: </strong>{{ incomeAmount }}</p>
+      <p><strong>Origin: </strong>{{ origin }}</p>
     </div>
-  </fieldset>
 
-  <div class="brief form-item">
-    <p><strong>Amount: </strong>{{ incomeAmount }}</p>
-    <p><strong>Origin: </strong>{{ origin }}</p>
-  </div>
-
-  <input type="submit" />
+    <input type="submit" />
+  </form>
 </template>
 
 <style scoped lang="scss">
