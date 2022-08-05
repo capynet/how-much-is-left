@@ -1,12 +1,12 @@
 <script setup lang="ts">
 import { ref } from "vue";
+import IncomesService from "@/services/IncomesService";
 
 const incomeAmount = ref();
 const origin = ref("ueExempt");
 
-const submit = function (e: SubmitEvent) {
-  console.log(e);
-  console.log("enviado");
+const submit = function () {
+  IncomesService.create({ amount: incomeAmount.value, origin: origin.value });
 };
 </script>
 
